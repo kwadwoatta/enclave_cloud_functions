@@ -1,0 +1,109 @@
+[debug] [2020-01-20T18:00:30.380Z] ----------------------------------------------------------------------
+[debug] [2020-01-20T18:00:30.384Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Prince\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2020-01-20T18:00:30.384Z] CLI Version:   7.12.1
+[debug] [2020-01-20T18:00:30.384Z] Platform:      win32
+[debug] [2020-01-20T18:00:30.384Z] Node Version:  v12.2.0
+[debug] [2020-01-20T18:00:30.386Z] Time:          Mon Jan 20 2020 18:00:30 GMT+0000 (Greenwich Mean Time)
+[debug] [2020-01-20T18:00:30.386Z] ----------------------------------------------------------------------
+[debug] [2020-01-20T18:00:30.386Z] 
+[debug] [2020-01-20T18:00:30.427Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-20T18:00:30.428Z] > authorizing via signed-in user
+[debug] [2020-01-20T18:00:30.428Z] [iam] checking project enclave-space for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2020-01-20T18:00:30.431Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-01-20T18:00:30.431Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-01-20T18:00:32.753Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-20T18:00:32.823Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/enclave-space:testIamPermissions  
+
+[debug] [2020-01-20T18:00:38.269Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'enclave-space'...
+[info] 
+[info] i  deploying functions
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] +  functions: Finished running predeploy script.
+[debug] [2020-01-20T18:00:59.329Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc",
+    "serve": "npm run build && firebase serve --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "@types/fs-extra": "^8.0.1",
+    "@types/sharp": "^0.23.1",
+    "axios": "^0.19.0",
+    "firebase": "^7.6.2",
+    "firebase-admin": "^8.8.0",
+    "firebase-functions": "^3.3.0",
+    "fs-extra": "^8.1.0",
+    "sharp": "^0.23.4"
+  },
+  "devDependencies": {
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2",
+    "firebase-functions-test": "^0.1.6"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2020-01-20T18:00:59.331Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/enclave-space/services/cloudfunctions.googleapis.com  
+ 
+[debug] [2020-01-20T18:00:59.332Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/enclave-space/services/runtimeconfig.googleapis.com  
+ 
+[debug] [2020-01-20T18:01:03.187Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-20T18:01:04.578Z] <<< HTTP RESPONSE 200
+[info] +  functions: all necessary APIs are enabled
+[debug] [2020-01-20T18:01:04.580Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/enclave-space/adminSdkConfig  
+ 
+[debug] [2020-01-20T18:01:12.868Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2020-01-20T18:01:12.875Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/enclave-space/configs  
+ 
+[debug] [2020-01-20T18:01:15.329Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (110.88 KB) for uploading
+[debug] [2020-01-20T18:01:22.119Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/enclave-space/locations/us-central1/functions:generateUploadUrl  
+ 
+[debug] [2020-01-20T18:01:25.336Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-20T18:01:25.337Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-5a18bf90-f7eb-4a16-81fb-4c61448884d4/d706260b-b0ad-4fd7-a3a3-92d8abccee9d.zip?GoogleAccessId=service-223677994650@gcf-admin-robot.iam.gserviceaccount.com&Expires=1579545085&Signature=YocZbZP7tNg36zgXurGCSlS0OwpcV99gkN0VVd5%2Fsw7xfHpPgpf3qUt%2BNLmyc3KNMFB1JWwyuLgGikJAwQLQI2EqShG9%2B9BL12ewRVh61v2b%2F6z5zldctBDWtdGa3yLU7xx8FaXqz3L1Rj7VJUjV75NMqxXd29PelL3TzrPYdaRHupPIuX1UTqAae%2BLqaZGndWLKnonoEgCQRRmCcLZjp%2F21iWjYH%2BQ9h1uPatj%2BbpxOHyjoRPqMO6lSSFRdk3ocuE4Do8caeKsskGAOSALBrjCWU4%2F3%2BA1GHUxtTPnYWgY4uMu2DWIbC%2Byoa1QE0UdFcYvZQuhqPP69Ldf6Q4Yo9Q%3D%3D  
+ <request body omitted>
+[debug] [2020-01-20T18:01:34.307Z] <<< HTTP RESPONSE 200
+[info] +  functions: functions folder uploaded successfully
+[debug] [2020-01-20T18:01:34.311Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/enclave-space/locations/-/functions  
+ 
+[debug] [2020-01-20T18:01:35.692Z] <<< HTTP RESPONSE 200
+[info] i  functions: creating Node.js 8 function payForRequestedSpace(us-central1)...
+[debug] [2020-01-20T18:01:35.724Z] Trigger is:  {"httpsTrigger":{}}
+[info] i  functions: updating Node.js 8 function generateThumbs(us-central1)...
+[debug] [2020-01-20T18:01:35.726Z] Trigger is:  {"eventTrigger":{"resource":"projects/_/buckets/enclave-space.appspot.com","eventType":"google.storage.object.finalize","service":"storage.googleapis.com"}}
+[info] i  functions: updating Node.js 8 function createVendor(us-central1)...
+[debug] [2020-01-20T18:01:35.727Z] Trigger is:  {"httpsTrigger":{}}
+[info] i  functions: updating Node.js 8 function createScout(us-central1)...
+[debug] [2020-01-20T18:01:35.728Z] Trigger is:  {"httpsTrigger":{}}
+[info] i  functions: updating Node.js 8 function setPhotoUrl(us-central1)...
+[debug] [2020-01-20T18:01:35.730Z] Trigger is:  {"httpsTrigger":{}}
+[info] i  functions: updating Node.js 8 function isVendorNumberActive(us-central1)...
+[debug] [2020-01-20T18:01:35.731Z] Trigger is:  {"httpsTrigger":{}}
+[info] i  functions: updating Node.js 8 function setAsVendor(us-central1)...
+[debug] [2020-01-20T18:01:35.733Z] Trigger is:  {"httpsTrigger":{}}
+[info] i  functions: updating Node.js 8 function setAsScout(us-central1)...
+[debug] [2020-01-20T18:01:35.734Z] Trigger is:  {"httpsTrigger":{}}
+[info] i  functions: updating Node.js 8 function canVendorSignIn(us-central1)...
+[debug] [2020-01-20T18:01:35.736Z] Trigger is:  {"httpsTrigger":{}}
+[info] i  functions: updating Node.js 8 function canScoutSignIn(us-central1)...
+[debug] [2020-01-20T18:01:35.737Z] Trigger is:  {"httpsTrigger":{}}
+[info] 
+The following functions are found in your project but do not exist in your local source code:
+	saveSquareCustomer(us-central1)
+
+If you are renaming a function or changing its region, it is recommended that you create the new function first before deleting the old one to prevent event loss. For more info, visit https://firebase.google.com/docs/functions/manage-functions#modify
+
